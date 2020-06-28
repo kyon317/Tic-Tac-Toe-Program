@@ -8,20 +8,13 @@ Tic-Tac-Toe Chess program:
 
 '''
 Chess class
-'''
-
-
 class Chess(type, coordinate=None):
     type = {'X', 'O'}
     coordinate = None
-
-'''
-Board class
 '''
 
 
-class Board(size=9):
-    size = 9
+
 
 
 '''
@@ -29,8 +22,10 @@ Print a board with chess on it.
 '''
 
 
-def print_board(board, chess):
-    print(board)
+def print_board(board):
+    print("    a b c")
+    for count, row in enumerate(board):
+        print(count,' ', *row, ' ', sep='|' )
 
 '''
 Judge the current status
@@ -45,7 +40,7 @@ Return a list of legal moves based on current status
 '''
 
 
-def return_legal_moves(board, current_status):
+def return_legal_moves(board):
     print()
 
 '''
@@ -60,5 +55,13 @@ def make_random_playouts(legal_moves):
 '''
 Update board with chess
 '''
-def make_moves(board,chess):
-    print_board()
+def make_moves(board,coordinate):
+    board[coordinate[0]][coordinate[1]] = 'x'
+
+
+board = [['-','-','-'],['-','-','-'],['-','-','-']]
+print_board(board)
+coordinate = (0,0)
+
+make_moves(board,coordinate)
+print_board(board)
